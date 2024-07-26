@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     proxy: {
       "/api/v1": {
-        target:"https://expense-davincitsolutions-api.onrender.com/",
+        target:"https://expense-davincitsolutions-api.onrender.com",
         changeOrigin: true,
       },
     },
