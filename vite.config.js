@@ -29,7 +29,6 @@ export default defineConfig({
         target: 'https://davincitsolutions-expense-api.onrender.com',
         changeOrigin: true,
         secure: false,
-        rewrite: (path) => path.replace(/^\/api\/v1/, ''),
       },
     },
   },
