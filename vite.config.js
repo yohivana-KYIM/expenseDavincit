@@ -28,6 +28,24 @@
 
 
 
+// import { defineConfig } from 'vite';
+// import react from '@vitejs/plugin-react';
+
+// // https://vitejs.dev/config/
+// export default defineConfig({
+//   plugins: [react()],
+//   server: {
+//     proxy: {
+//       '/api/v1': {
+//         target: 'https://davincitsolutions-expense-api.onrender.com/api/v1', // Cible du proxy
+//         changeOrigin: true, // Change l'origine de l'hôte pour la requête
+//         rewrite: (path) => path.replace(/^\/api\/v1/, ''), // Réécrit le chemin de la requête
+//       },
+//     },
+//   },
+// });
+
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -35,16 +53,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {
-    proxy: {
-      '/api/v1': {
-        target: 'https://davincitsolutions-expense-api.onrender.com/api/v1', // Cible du proxy
-        changeOrigin: true, // Change l'origine de l'hôte pour la requête
-        rewrite: (path) => path.replace(/^\/api\/v1/, ''), // Réécrit le chemin de la requête
-      },
-    },
+    // No proxy configuration as Axios is used directly
   },
 });
-
-
-
 
