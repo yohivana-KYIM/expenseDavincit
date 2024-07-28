@@ -24,12 +24,15 @@ const SideBar = () => {
 
   return (
     <nav className="hidden xl:flex flex-col w-[15%] h-full border-r-1 border-secondary py-3">
-      <div className="px-4 flex items-center gap-x-2">
-        <img src={logo} alt="spend smart logo" className="w-[2.5rem]" />
-        <h5 className="text-xl font-outfit">
-          Spend<span className="text-primary text-xl">Smart.</span>
-        </h5>
-      </div>
+  <div className="px-4 flex items-center gap-x-6">
+    {/* <img src={logo} alt="spend smart logo" className="w-[2.5rem]" /> */}
+    <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
+        DAVINCIITSOLUTIONS
+    </span>
+    
+</div>
+
+
       <menu className="w-full h-full flex flex-col px-3 mt-12">
         <div className="space-y-6 flex flex-col">
           <li
