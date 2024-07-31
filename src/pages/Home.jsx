@@ -24,6 +24,8 @@ const Home = () => {
       <NavBar />
       <div className="bg-primary-50 pb-4 pt-12 sm:pt-0 gap-y-12 flex flex-col sm:block h-[90vh] sm:h-full">
         <div className="w-full sm:h-[65vh] flex flex-col justify-center items-center order-2 sm:order-1">
+    
+    
         <h2 className="text-4xl md:text-5xl xl:text-7xl font-bold my-8 text-center">
     Suivez vos{" "}
     <TypeAnimation
@@ -42,23 +44,30 @@ const Home = () => {
     />{" "}
 </h2>
 
+
+
+
+
           <p className="text-sm sm:text-base lg:text-lg my-8 text-balance text-center w-[90%] xl:w-[60%] mx-auto">
     Bienvenue chez <span className='font-bold'>DAVINCIITSOLUTIONS</span>, votre solution ultime pour gérer efficacement vos finances personnelles. Avec cette solution, vous pouvez facilement suivre vos dépenses, surveiller vos revenus et rester au fait de vos objectifs financiers.
 </p>
 
-          <Button
-            color="primary"
-            className="text-sm sm:text-base lg:text-lg lg:w-[14rem] px-6 py-6"
-            radius="sm"
-            startContent={<StartNow />}
-            onPress={() => navigate("/register")}
-          >
-          Démarrez maintenant! 
-          </Button>
-          <ThreeDots
-            className="text-primary size-[2.5rem] mt-4 cursor-pointer"
-            onClick={() => navigate("/login")}
-          />
+<Button
+  color="primary"
+  className="text-sm sm:text-base lg:text-lg lg:w-[14rem] px-6 py-6 rounded-full bg-green-500  text-white" // Exemple avec couleur de fond rouge et texte blanc
+  radius="sm"
+  startContent={<StartNow />}
+  onPress={() => navigate("/register")}
+>
+  Démarrez maintenant!
+</Button>
+<ThreeDots
+  className="text-primary size-[2.5rem] mt-4 cursor-pointer"
+  onClick={() => navigate("/login")}
+  style={{ color: '#38a169' }} // Exemple de couleur verte pour l'icône
+/>
+
+
         </div>
         <img
           src={dashboard}

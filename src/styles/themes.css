@@ -1,0 +1,33 @@
+/* Styles globaux pour le thème clair */
+body.light {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  /* Styles globaux pour le thème sombre */
+  body.dark {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  /* Exemple de styles conditionnels pour l'en-tête */
+  header.light {
+    background-color: #f0f0f0;
+  }
+  
+  header.dark {
+    background-color: #333333;
+  }
+  
+
+//viens
+
+  body.dark .theme-toggle-icon {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .theme-toggle-icon {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  

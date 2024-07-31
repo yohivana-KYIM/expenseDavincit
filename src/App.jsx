@@ -4,6 +4,7 @@ import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import TopLoadingBar from "./components/TopLoadingBar";
+// import NavBar from "./components/NavBar"; // Assurez-vous que NavBar est importé
 import {
   Home,
   NotFound,
@@ -21,6 +22,7 @@ const App = () => {
   return (
     <>
       <TopLoadingBar />
+      {/* <NavBar /> Ajoutez NavBar ici pour afficher le bouton de bascule du thème */}
       <ToastContainer
         position="bottom-right"
         autoClose={2500}
@@ -43,7 +45,6 @@ const App = () => {
             <Route path="/dashboard/settings" element={<Settings />} />
           </Route>
         </Route>
-
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

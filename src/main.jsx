@@ -1,23 +1,27 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { NextUIProvider } from "@nextui-org/react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Provider } from "react-redux";
-import { SpeedInsights } from "@vercel/speed-insights/react";
-import { Analytics } from "@vercel/analytics/react";
-import store from "./app/store.js";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { NextUIProvider } from '@nextui-org/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from '@vercel/analytics/react';
+import store from './app/store';
+import { ThemeProvider } from './context/ThemeContext'; // Assurez-vous que le chemin est correct
 
-import App from "./App.jsx";
-import "./index.css";
+import App from './App';
+import './index.css'; // Import des styles globaux
+import './styles/themes.css'; // Import des styles des thèmes
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Provider store={store}>
         <NextUIProvider>
-          <SpeedInsights />
-          <Analytics />
-          <App />
+          <ThemeProvider> {/* Utilisation du ThemeProvider */}
+            <SpeedInsights />
+            <Analytics />
+            <App />
+          </ThemeProvider>
         </NextUIProvider>
       </Provider>
     </Router>
