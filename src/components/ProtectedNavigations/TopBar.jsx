@@ -27,7 +27,7 @@ const TopBar = () => {
         <Menu />
       </div>
       <div className="hidden md:flex items-center space-x-4">
-        <img src={arrow} alt="" className="w-[35px]  onClick={() => navigate("/")}" />
+        <img src={arrow} alt="" className="w-[35px]" />
         <Link
           to="https://www.linkedin.com/in/kenmegne-yoh-ivana-marina-a656a92a0"
           target="_blank"
