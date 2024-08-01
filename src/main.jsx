@@ -1,3 +1,7 @@
+// Importation des polyfills pour la compatibilité des navigateurs plus anciens
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { NextUIProvider } from '@nextui-org/react';
