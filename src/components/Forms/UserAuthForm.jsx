@@ -31,7 +31,7 @@ const UserAuthForm = ({
           color="secondary"
           showFallback
         />
-        <h3 className="text-black text-2xl md:text-3xl xl:text-4xl mb-4">
+        <h3 className="text-white text-2xl md:text-3xl xl:text-4xl mb-4">
           {title}
         </h3>
         <div className="w-[85%] sm:w-[70%] flex flex-col justify-center items-center">
