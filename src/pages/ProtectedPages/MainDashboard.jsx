@@ -89,11 +89,10 @@ const DashboardPage = () => {
   return (
     <section className="w-full h-full md:h-[90vh] px-3 md:px-6">
       <h2 className="text-2xl md:text-3xl lg:text-4xl mt-3 text-center sm:text-left text-pretty">
-        Hello, {user}😊
+        Bonjour, {user}😊
       </h2>
       <h3 className="font-outfit text-sm md:text-base lg:text-lg text-center sm:text-left text-pretty">
-        See what's happenning with your money, Lets Manage your
-        incomes/expenses.{" "}
+      Voyez ce qui se passe avec votre argent, Gérons vos revenus/dépenses.{" "}
         <span className="font-bold text-primary">DavinciitSolutions-expenses!</span>
       </h3>
       <div className="w-full mt-8 flex flex-col sm:flex-row gap-y-4 justify-between items-center">
@@ -101,7 +100,7 @@ const DashboardPage = () => {
           <div>
             <h4 className="font-outfit text-base md:text-lg">Total Balance</h4>
             <h4 className="text-2xl md:text-3xl mt-1">
-              $
+            FCFA
               <NumericFormat
                 className="ml-1 text-xl md:text-2xl"
                 value={totalBalance}
@@ -116,7 +115,7 @@ const DashboardPage = () => {
           <div>
             <h4 className="font-outfit text-base md:text-lg">Total Incomes</h4>
             <h4 className="text-2xl md:text-3xl text-emerald-400 mt-1">
-              $
+            FCFA
               <NumericFormat
                 className="ml-1 text-xl md:text-2xl"
                 value={totalIncome}
@@ -131,7 +130,7 @@ const DashboardPage = () => {
           <div>
             <h4 className="font-outfit text-base md:text-lg">Total Expenses</h4>
             <h4 className="text-2xl md:text-3xl text-red-400 mt-1">
-              $
+            FCFA
               <NumericFormat
                 className="ml-1 text-xl md:text-2xl"
                 value={totalExpense}
@@ -185,7 +184,7 @@ const DashboardPage = () => {
                         : "text-red-400"
                     }`}
                   >
-                    ${transaction.amount}
+                     FCFA{transaction.amount}
                   </h5>
                 </li>
               ))

@@ -161,7 +161,7 @@ const Incomes = () => {
       <h3 className="text-3xl lg:text-5xl mt-4 text-center">
         Total Income -{" "}
         <span className="text-emerald-400">
-          $
+        FCFA
           <NumericFormat
             className="ml-1 text-2xl lg:text-4xl"
             value={totalIncome}

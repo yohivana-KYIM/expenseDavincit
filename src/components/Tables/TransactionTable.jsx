@@ -77,7 +77,7 @@ const TransactionTable = ({
               <TableCell className="text-primary font-calSans tracking-wider capitalize">
                 {title}
               </TableCell>
-              <TableCell>${amount}</TableCell>
+              <TableCell> FCFA{amount}</TableCell>
               <TableCell>
                 <Chip
                   className="capitalize"
