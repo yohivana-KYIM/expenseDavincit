@@ -24,6 +24,9 @@ import { BiDollarCircle, BiMoneyWithdraw } from "react-icons/bi";
 import { LuMenu } from "react-icons/lu";
 import { FiTrash } from "react-icons/fi";
 import { MdLockReset } from "react-icons/md";
+import { AiOutlineDownload } from "react-icons/ai"; 
+
+
 
 export const Register = RiShieldUserFill;
 export const Login = RiLoginCircleLine;
@@ -34,6 +37,7 @@ export const User = FaCircleUser;
 export const Email = HiMail;
 export const Password = BsFillShieldLockFill;
 export const Eye = IoEye;
+export const Download = AiOutlineDownload;
 export const EyeOff = IoEyeOff;
 export const Logout = FaSnowboarding;
 export const Dashboard = RxDashboard;
