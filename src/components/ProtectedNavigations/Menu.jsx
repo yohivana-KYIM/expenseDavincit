@@ -58,7 +58,7 @@ const Menu = () => {
           description="View and Edit your incomes."
           onPress={() => navigate("/dashboard/incomes")}
         >
-          Incomes
+         Revenu
         </DropdownItem>
 
         <DropdownItem
@@ -68,7 +68,7 @@ const Menu = () => {
           description="View and Edit your expenses."
           onPress={() => navigate("/dashboard/expenses")}
         >
-          Expenses
+         Depense
         </DropdownItem>
 
         <DropdownItem
@@ -78,7 +78,7 @@ const Menu = () => {
           description="View account Settings."
           onPress={() => navigate("/dashboard/settings")}
         >
-          Settings
+          Parametre
         </DropdownItem>
 
         <DropdownItem
@@ -88,7 +88,7 @@ const Menu = () => {
           description="Sign out from your account"
           onPress={() => dispatch(openModal())}
         >
-          Logout
+          Deconnexion
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

@@ -93,10 +93,10 @@
 
 //   return (
 //     <section className="w-full h-full md:h-[90vh] px-3 md:px-6">
-//       <h2 className="text-2xl md:text-3xl lg:text-4xl mt-3 text-center sm:text-left text-pretty">
+//       <h2 className="mt-3 text-2xl text-center md:text-3xl lg:text-4xl sm:text-left text-pretty">
 //         Bonjour, {user}😊
 //       </h2>
-//       <h3 className="font-outfit text-sm md:text-base lg:text-lg text-center sm:text-left text-pretty">
+//       <h3 className="text-sm text-center font-outfit md:text-base lg:text-lg sm:text-left text-pretty">
 //         Voyez ce qui se passe avec votre argent, Gérons vos revenus/dépenses.{" "}
 //         <span className="font-bold text-primary">
 //           DavinciitSolutions-expenses!
@@ -106,17 +106,17 @@
 //       {/* Button to generate PDF */}
 //       <button
 //         onClick={generatePDF}
-//         className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+//         className="px-4 py-2 mt-4 text-white bg-blue-500 rounded-md"
 //       >
 //         Télécharger le résumé PDF
 //       </button>
 
-//       <div className="w-full mt-8 flex flex-col sm:flex-row gap-y-4 justify-between items-center">
+//       <div className="flex flex-col items-center justify-between w-full mt-8 sm:flex-row gap-y-4">
 //         {/* Balances and other stats here... */}
 //         <div className="px-6 py-4 border-2 w-full sm:w-[30%] border-secondary rounded-lg inline-flex justify-between items-center">
 //           <div>
-//             <h4 className="font-outfit text-base md:text-lg">Total Balance</h4>
-//             <h4 className="text-2xl md:text-3xl mt-1">
+//             <h4 className="text-base font-outfit md:text-lg">Total Balance</h4>
+//             <h4 className="mt-1 text-2xl md:text-3xl">
 //               FCFA
 //               <NumericFormat
 //                 className="ml-1 text-xl md:text-2xl"
@@ -203,7 +203,7 @@ const DashboardPage = () => {
       setFilteredTransactions(recentHistory);
     } catch (error) {
       console.log(error);
-      toast.error(error?.data?.error || "Unexpected Internal Server Error!");
+      toast.error(error?.data?.error || "Erreur Interne Inattendue  !");
     }
   };
 
@@ -250,7 +250,7 @@ const DashboardPage = () => {
   if (incomeAmounts.length === 0 || expenseAmounts.length === 0) {
     data = [
       {
-        name: "Data unavailable. Please add your incomes/expenses to populate this display.",
+        name: "Données non disponibles. Veuillez ajouter vos revenus/dépenses pour afficher ce tableau..",
         income: 0,
         expense: 0,
       },
@@ -288,7 +288,7 @@ const DashboardPage = () => {
       startY: 70,
     });
 
-    doc.save(`dashboard_summary_${user}.pdf`);
+    doc.save(`résumé_tableau_de_bord_${user}.pdf`);
   };
 
   useEffect(() => {
@@ -297,29 +297,29 @@ const DashboardPage = () => {
 
   return (
     <section className="w-full h-full md:h-[90vh] px-3 md:px-6">
-      <h2 className="text-2xl md:text-3xl lg:text-4xl mt-3 text-center sm:text-left text-pretty">
+      <h2 className="mt-3 text-2xl text-center md:text-3xl lg:text-4xl sm:text-left text-pretty">
         Bonjour, {user}😊
       </h2>
-      <h3 className="font-outfit text-sm md:text-base lg:text-lg text-center sm:text-left text-pretty">
+      <h3 className="text-sm text-center font-outfit md:text-base lg:text-lg sm:text-left text-pretty">
         Voyez ce qui se passe avec votre argent, Gérons vos revenus/dépenses.{" "}
         <span className="font-bold text-primary">
-          DavinciitSolutions-expenses!
+          Da vinci it Solutions-expenses!
         </span>
       </h3>
 
       <button
         onClick={generatePDF}
-        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+        className="px-4 py-2 mt-4 text-white bg-blue-500 rounded-md"
       >
         Télécharger le résumé PDF
       </button>
 
-      <div className="w-full mt-8 flex flex-col sm:flex-row gap-y-4 justify-between items-center">
+      <div className="flex flex-col items-center justify-between w-full mt-8 sm:flex-row gap-y-4">
         {/* Total Balance */}
         <div className="px-6 py-4 border-2 w-full sm:w-[30%] border-secondary rounded-lg inline-flex justify-between items-center">
           <div>
-            <h4 className="font-outfit text-base md:text-lg">Total Balance</h4>
-            <h4 className="text-2xl md:text-3xl mt-1">
+            <h4 className="text-base font-outfit md:text-lg">Solde</h4>
+            <h4 className="mt-1 text-2xl md:text-3xl">
               FCFA
               <NumericFormat
                 className="ml-1 text-xl md:text-2xl"
@@ -335,8 +335,8 @@ const DashboardPage = () => {
         {/* Total Incomes */}
         <div className="px-6 py-4 border-2 w-full sm:w-[30%] border-secondary rounded-lg inline-flex justify-between items-center">
           <div>
-            <h4 className="font-outfit text-base md:text-lg">Total Incomes</h4>
-            <h4 className="text-2xl md:text-3xl text-emerald-400 mt-1">
+            <h4 className="text-base font-outfit md:text-lg">Total Revenu</h4>
+            <h4 className="mt-1 text-2xl md:text-3xl text-emerald-400">
               FCFA
               <NumericFormat
                 className="ml-1 text-xl md:text-2xl"
@@ -352,8 +352,8 @@ const DashboardPage = () => {
         {/* Total Expenses */}
         <div className="px-6 py-4 border-2 w-full sm:w-[30%] border-secondary rounded-lg inline-flex justify-between items-center">
           <div>
-            <h4 className="font-outfit text-base md:text-lg">Total Expenses</h4>
-            <h4 className="text-2xl md:text-3xl text-red-400 mt-1">
+            <h4 className="text-base font-outfit md:text-lg">Total Depenses</h4>
+            <h4 className="mt-1 text-2xl text-red-400 md:text-3xl">
               FCFA
               <NumericFormat
                 className="ml-1 text-xl md:text-2xl"
@@ -363,26 +363,26 @@ const DashboardPage = () => {
               />
             </h4>
           </div>
-          <Expense className="icon text-red-400" />
+          <Expense className="text-red-400 icon" />
         </div>
       </div>
 
       {/* Recent Transactions */}
-      <div className="w-full mt-8 flex flex-col md:flex-row gap-4">
+      <div className="flex flex-col w-full gap-4 mt-8 md:flex-row">
         <div className="w-full md:w-[35%]">
-          <h4 className="font-outfit text-lg md:text-xl text-pretty">
+          <h4 className="text-lg font-outfit md:text-xl text-pretty">
             Transactions Récentes
           </h4>
           <div className="mt-2">
             <select
               value={filterOption}
               onChange={handleFilterChange}
-              className="px-3 py-2 border rounded-md w-full"
+              className="w-full px-3 py-2 border rounded-md"
             >
-              <option value="all">All</option>
-              <option value="today">Today</option>
-              <option value="yesterday">Yesterday</option>
-              <option value="lastMonth">Last Month</option>
+              <option value="all">Tous</option>
+              <option value="today">Aujourd'hui</option>
+              <option value="yesterday">Hier</option>
+              <option value="lastMonth">Le Mois Dernier</option>
             </select>
           </div>
 

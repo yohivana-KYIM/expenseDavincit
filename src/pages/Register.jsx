@@ -30,17 +30,17 @@ const Register = () => {
   );
 
   const [otp, setOtp] = useState("");
-  const [step, setStep] = useState(1); // 1: registration, 2: OTP verification
+  const [step, setStep] = useState(1); // 1 : enregistrement, 2 : vérification OTP
 
   const validationSchema = object({
     username: string()
-      .required("Username is required.")
-      .min(3, "Username must be atleast 3 characters long.")
-      .max(20, "Username should not be more than 20 characters."),
-    email: string().required("Email is required.").email("Invalid Email."),
+      .required("Le nom d'utilisateur est requis.")
+      .min(3, "Le nom d'utilisateur doit comporter au moins 3 caractères.")
+      .max(20, "Le nom d'utilisateur ne doit pas dépasser 20 caractères."),
+    email: string().required("L'email est requis.").email("Email invalide."),
     password: string()
-      .required("Password is required.")
-      .min(8, "Password must be atleast 8 characters long."),
+      .required("Le mot de passe est requis.")
+      .min(8, "Le mot de passe doit comporter au moins 8 caractères."),
   });
 
   const handleOnChange = (e) => {
@@ -69,12 +69,12 @@ const Register = () => {
       await localStorage.setItem("otpCountdown", "60");
 
       dispatch(updateLoader(60));
-      toast.success("OTP sent successfully. Please check your email!");
+      toast.success("OTP envoyé avec succès. Veuillez vérifier votre email !");
 
       setStep(2);
     } catch (error) {
       console.log(error);
-      toast.error(error?.data?.error || "Unexpected Internal Server Error!");
+      toast.error(error?.data?.error || "Erreur interne inattendue !");
     } finally {
       dispatch(updateLoader(100));
     }
@@ -91,12 +91,12 @@ const Register = () => {
 
       await dispatch(updateLoader(60));
       await dispatch(setCredentials(otpRes.user));
-      toast.success(otpRes.message || "Email has been verified successfully!");
+      toast.success(otpRes.message || "L'email a été vérifié avec succès !");
 
       navigate("/");
     } catch (error) {
       console.log(error);
-      toast.error(error?.data?.error || "Unexpected Internal Server Error!");
+      toast.error(error?.data?.error || "Erreur interne inattendue !");
     } finally {
       dispatch(updateLoader(100));
     }
@@ -110,13 +110,13 @@ const Register = () => {
 
       dispatch(updateLoader(70));
       toast.success(
-        otpRes.message || "OTP sent successfully. Please check your email!"
+        otpRes.message || "OTP envoyé avec succès. Veuillez vérifier votre email !"
       );
       setCountdown(60);
       localStorage.setItem("otpCountdown", "60");
     } catch (error) {
       console.log(error);
-      toast.error(error?.data?.error || "Unexpected Internal Server Error!");
+      toast.error(error?.data?.error || "Erreur interne inattendue !");
     } finally {
       dispatch(updateLoader(100));
     }
@@ -138,10 +138,10 @@ const Register = () => {
   return (
     <section className="w-full h-[90vh] px-6 sm:px-8 md:px-12 flex justify-center items-center">
       <UserAuthForm
-        title={step === 1 ? "Register Now" : "Verify Your Email"}
-        imageTitle="Easy to Use."
+        title={step === 1 ? "" : "Vérifiez votre email"}
+        imageTitle="Facile à utiliser."
         imageSrc={registerImg}
-        alt="registration image"
+        alt="image d'enregistrement"
         form={
           step === 1 ? (
             <>
@@ -178,8 +178,8 @@ const Register = () => {
             />
           )
         }
-        footer={step === 1 && "Already have an account?"}
-        footerLink={step === 1 && "Login"}
+        footer={step === 1 && "Vous avez déjà un compte ?"}
+        footerLink={step === 1 && "Connexion"}
         footerLinkPath={step === 1 && "/login"}
       />
     </section>

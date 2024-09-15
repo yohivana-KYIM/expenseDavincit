@@ -49,17 +49,17 @@ const Settings = () => {
 
   const validationAccountInfoSchema = object({
     username: string()
-      .min(3, "Username must be atleast 3 characters long.")
-      .max(20, "Username should not be more than 20 characters."),
-    email: string().email("Invalid Email."),
+      .min(3, "Le nom d'utilisateur doit contenir au moins 3 caractères.")
+      .max(20, "Le nom d'utilisateur ne doit pas dépasser 20 caractères."),
+    email: string().email("Email invalide."),
   });
   const validationResetPassSchema = object({
     oldPassword: string()
-      .required("Password is required.")
-      .min(8, "Password must be atleast 8 characters long."),
+      .required("Le mot de passe est requis.")
+      .min(8, "Le mot de passe doit contenir au moins 8 caractères."),
     newPassword: string()
-      .required("New Password is required.")
-      .min(8, "New Password must be at least 8 characters long."),
+      .required("Le nouveau mot de passe est requis.")
+      .min(8, "Le nouveau mot de passe doit contenir au moins 8 caractères."),
   });
 
   const handleAccountInfoOnChange = (e) => {
@@ -100,7 +100,7 @@ const Settings = () => {
         username === initialAccountInfoData.username &&
         email === initialAccountInfoData.email
       ) {
-        toast.error("No changes detected.");
+        toast.error("Aucun changement détecté.");
         return;
       }
 
@@ -109,10 +109,10 @@ const Settings = () => {
       await dispatch(setCredentials(res.user));
 
       dispatch(updateLoader(60));
-      toast.success(res.message || "Profile updated Successfully!");
+      toast.success(res.message || "Profil mis à jour avec succès !");
     } catch (error) {
       console.log(error);
-      toast.error(error?.data?.error || "Unexpected Internal Server Error!");
+      toast.error(error?.data?.error || "Erreur interne inattendue !");
     } finally {
       dispatch(updateLoader(100));
     }
@@ -129,10 +129,10 @@ const Settings = () => {
       const res = await resetPassword(resetPassData).unwrap();
 
       dispatch(updateLoader(60));
-      toast.success(res.message || "Password updated successfully!");
+      toast.success(res.message || "Mot de passe mis à jour avec succès !");
     } catch (error) {
       console.log(error);
-      toast.error(error?.data?.error || "Unexpected Internal Server Error!");
+      toast.error(error?.data?.error || "Erreur interne inattendue !");
     } finally {
       dispatch(updateLoader(100));
     }
@@ -161,7 +161,7 @@ const Settings = () => {
       console.log(error);
       await toast.error(
         error?.data?.error ||
-          "An unexpected error occurred while fetching data!"
+          "Une erreur inattendue s'est produite lors de la récupération des données !"
       );
     }
   };
@@ -179,14 +179,14 @@ const Settings = () => {
 
   return (
     <div className="flex flex-col justify-center items-center w-full h-[90vh] space-y-8">
-      <h4 className="text-2xl md:text-3xl lg:text-5xl mt-4 text-center">
-        Account Settings
+      <h4 className="mt-4 text-2xl text-center md:text-3xl lg:text-5xl">
+        Paramètres du Compte
       </h4>
       <Card className="w-[20rem] md:w-[30rem] h-[25rem]">
         {userDetailsLoading ? (
           <Spinner />
         ) : (
-          <CardBody className="overflow-hidden flex flex-col justify-center">
+          <CardBody className="flex flex-col justify-center overflow-hidden">
             <Tabs
               fullWidth
               size="md"
@@ -195,7 +195,7 @@ const Settings = () => {
               onSelectionChange={setSelected}
               className="mb-4"
             >
-              <Tab key="accountInfo" title="Account Information">
+              <Tab key="accountInfo" title="Informations du Compte">
                 <form className="flex flex-col gap-4">
                   <UsernameInput
                     value={username}
@@ -209,13 +209,13 @@ const Settings = () => {
                     noDescription
                   />
                   <p className="text-center text-pretty text-small">
-                    Need to update your password?{" "}
+                    Besoin de mettre à jour votre mot de passe ?{" "}
                     <Link
                       size="sm"
                       onPress={() => setSelected("resetPassword")}
                       className="cursor-pointer"
                     >
-                      Reset Password
+                      Réinitialiser le mot de passe
                     </Link>
                   </p>
                   <Button
@@ -226,16 +226,16 @@ const Settings = () => {
                     isLoading={updateUserLoading}
                     endContent={<UpdateProfile />}
                   >
-                    Update Profile
+                    Mettre à jour le Profil
                   </Button>
                 </form>
               </Tab>
-              <Tab key="resetPassword" title="Reset Password">
+              <Tab key="resetPassword" title="Réinitialiser le Mot de Passe">
                 <form className="flex flex-col gap-4">
                   <PasswordInput
                     name="oldPassword"
-                    label="Old Password"
-                    placeholder="Enter Old Password"
+                    label="Ancien Mot de Passe"
+                    placeholder="Entrez l'Ancien Mot de Passe"
                     value={oldPassword}
                     onChange={handleResetPasswordOnChange}
                     isInvalid={!!resetPassErrors?.oldPassword}
@@ -243,24 +243,24 @@ const Settings = () => {
                   />
                   <PasswordInput
                     name="newPassword"
-                    label="New Password"
-                    placeholder="Enter New Password"
+                    label="Nouveau Mot de Passe"
+                    placeholder="Entrez le Nouveau Mot de Passe"
                     value={newPassword}
                     onChange={handleResetPasswordOnChange}
                     isInvalid={!!resetPassErrors?.newPassword}
                     errorMessage={resetPassErrors?.newPassword}
                   />
                   <p className="text-center text-small">
-                    Want to modify your account details?{" "}
+                    Vous voulez modifier les détails de votre compte ?{" "}
                     <Link
                       size="sm"
                       onPress={() => setSelected("accountInfo")}
                       className="cursor-pointer"
                     >
-                      Account Information
+                      Informations du Compte
                     </Link>
                   </p>
-                  <div className="flex gap-2 justify-end">
+                  <div className="flex justify-end gap-2">
                     <Button
                       fullWidth
                       color="primary"
@@ -271,7 +271,7 @@ const Settings = () => {
                       }
                       endContent={<ResetPassword />}
                     >
-                      Reset Password
+                      Réinitialiser le Mot de Passe
                     </Button>
                   </div>
                 </form>

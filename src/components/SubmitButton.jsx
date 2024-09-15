@@ -11,7 +11,7 @@ const SubmitButton = ({ isLoading, handleSubmit, isDisabled }) => {
       className="text-secondary hover:text-primary text-2xl w-full mt-8"
       onClick={handleSubmit}
     >
-      Submit
+      Envoyer
     </Button>
   );
 };

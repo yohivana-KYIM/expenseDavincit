@@ -199,8 +199,8 @@ const TransactionViewAndUpdateModal = () => {
     >
       <ModalContent>
         <>
-          <ModalHeader className="flex justify-center items-center">
-            <h4 className="text-2xl tracking-relaxed capitalize">
+          <ModalHeader className="flex items-center justify-center">
+            <h4 className="text-2xl capitalize tracking-relaxed">
               {isDisabled ? `${mainTitle} Overview` : `Update ${mainTitle}`}
             </h4>
           </ModalHeader>
@@ -230,7 +230,7 @@ const TransactionViewAndUpdateModal = () => {
               startContent={<Amount />}
               className="text-gray-500"
             />
-            <div className="w-full flex gap-x-2">
+            <div className="flex w-full gap-x-2">
               {isDisabled ? (
                 <Input
                   type="text"

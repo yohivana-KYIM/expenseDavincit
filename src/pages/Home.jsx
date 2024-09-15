@@ -22,13 +22,13 @@
 //       <NavBar />
 //       <div className="bg-primary-50 pb-8 pt-12 sm:pt-0 flex flex-col sm:block h-[90vh] sm:h-full gap-y-12 transition-all duration-500 ease-in-out">
 //         <div className="w-full sm:h-[65vh] flex flex-col justify-center items-center order-2 sm:order-1 space-y-8 sm:space-y-12 animate-fadeIn">
-//           <h2 className="text-4xl md:text-5xl xl:text-7xl font-bold my-8 text-center">
+//           <h2 className="my-8 text-4xl font-bold text-center md:text-5xl xl:text-7xl">
 //             Suivez vos{" "}
 //             <TypeAnimation
 //               sequence={["Finances", 1000, "Dépenses", 1000, "Revenus", 1000]}
 //               wrapper="span"
 //               speed={20}
-//               className="text-primary inline-block transition-transform duration-300 ease-in-out transform hover:scale-110"
+//               className="inline-block transition-transform duration-300 ease-in-out transform text-primary hover:scale-110"
 //               repeat={Infinity}
 //             />
 //           </h2>
@@ -60,12 +60,12 @@
 //           alt="home image"
 //           className="w-[90%] xl:w-[80%] mx-auto rounded-xl border-3 border-gray-300 order-1 sm:order-2 shadow-lg transition-transform transform hover:scale-105 duration-300"
 //         />
-//         <div className="hidden sm:flex justify-center items-center mt-8">
+//         <div className="items-center justify-center hidden mt-8 sm:flex">
 //           <Link to="https://github.com/yohivana-KYIM" target="_blank">
 //             <Button
 //               color="primary"
 //               radius="sm"
-//               className="hover:bg-blue-600 transition-colors duration-300"
+//               className="transition-colors duration-300 hover:bg-blue-600"
 //             >
 //               En savoir plus sur le projet
 //             </Button>
@@ -130,19 +130,19 @@ const Home = () => {
       <NavBar />
       <div className="bg-primary-50 pb-8 pt-12 sm:pt-0 flex flex-col sm:block h-[90vh] sm:h-full gap-y-12 transition-all duration-500 ease-in-out">
         <div className="w-full sm:h-[65vh] flex flex-col justify-center items-center order-2 sm:order-1 space-y-8 sm:space-y-12 animate-fadeIn">
-          <h2 className="text-4xl md:text-5xl xl:text-7xl font-bold my-8 text-center">
+          <h2 className="my-8 text-4xl font-bold text-center md:text-5xl xl:text-7xl">
             Suivez vos{" "}
             <TypeAnimation
               sequence={["Finances", 1000, "Dépenses", 1000, "Revenus", 1000]}
               wrapper="span"
               speed={20}
-              className="text-primary inline-block transition-transform duration-300 ease-in-out transform hover:scale-110"
+              className="inline-block transition-transform duration-300 ease-in-out transform text-primary hover:scale-110"
               repeat={Infinity}
             />
           </h2>
           <p className="text-sm sm:text-base lg:text-lg my-8 text-balance text-center w-[90%] xl:w-[60%] mx-auto">
             Bienvenue chez{" "}
-            <span className="font-bold">DAVINCIITSOLUTIONS</span>, votre
+            <span className="font-bold">DA VINCI IT SOLUTIONS</span>, votre
             solution ultime pour gérer efficacement vos finances personnelles.
             Suivez vos dépenses, surveillez vos revenus et atteignez vos objectifs financiers.
           </p>
@@ -166,12 +166,12 @@ const Home = () => {
           alt="Tableau de bord"
           className="w-[90%] xl:w-[80%] mx-auto rounded-xl border-3 border-gray-300 order-1 sm:order-2 shadow-lg transition-transform transform hover:scale-105 duration-300"
         />
-        <div className="hidden sm:flex justify-center items-center mt-8">
+        <div className="items-center justify-center hidden mt-8 sm:flex">
           <Link to="https://github.com/yohivana-KYIM" target="_blank">
             <Button
               color="primary"
               radius="sm"
-              className="hover:bg-blue-600 transition-colors duration-300"
+              className="transition-colors duration-300 hover:bg-blue-600"
             >
               En savoir plus sur le projet
             </Button>

@@ -24,17 +24,19 @@ const SideBar = () => {
 
   return (
     <nav className="hidden xl:flex flex-col w-[15%] h-full border-r-1 border-secondary py-3">
-  <div className="px-4 flex items-center gap-x-6">
-    {/* <img src={logo} alt="spend smart logo" className="w-[2.5rem]" /> */}
-    <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
+  <div className="flex items-center px-4 gap-x-6">
+  <img src={logo} alt="Da Vinci IT Solutions logo" className="w-[10rem]"  />
+ 
+        
+    {/* <span className='px-2 py-1 text-white rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>
         DAVINCIITSOLUTIONS
-    </span>
+    </span> */}
     
 </div>
 
 
-      <menu className="w-full h-full flex flex-col px-3 mt-12">
-        <div className="space-y-6 flex flex-col">
+      <menu className="flex flex-col w-full h-full px-3 mt-12">
+        <div className="flex flex-col space-y-6">
           <li
             className={`link ${
               isRouteActive("/dashboard") ? "activeLink" : ""
@@ -55,7 +57,7 @@ const SideBar = () => {
             }}
           >
             <Income className="size-[1.5rem]" />
-            Incomes
+           Revenu
           </li>
           <li
             className={`link ${
@@ -66,7 +68,7 @@ const SideBar = () => {
             }}
           >
             <Expense className="size-[1.5rem]" />
-            Expenses
+           Depense
           </li>
         </div>
         <li
@@ -78,14 +80,14 @@ const SideBar = () => {
           }}
         >
           <Settings className="size-[1.5rem]" />
-          Settings
+        Parametre
         </li>
         <li
-          className="link mt-6 hover:bg-error hover:text-white"
+          className="mt-6 link hover:bg-error hover:text-white"
           onClick={() => dispatch(openModal())}
         >
           <Logout className="size-[1.5rem]" />
-          Logout
+          Deconnexion
         </li>
       </menu>
     </nav>

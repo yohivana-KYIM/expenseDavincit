@@ -161,8 +161,8 @@ const Expenses = () => {
 
   return (
     <>
-      <h3 className="text-3xl lg:text-5xl mt-4 text-center">
-        Total Expense -{" "}
+      <h3 className="mt-4 text-3xl text-center lg:text-5xl">
+        Total Depense -{" "}
         <span className="text-red-400">
         FCFA
           <NumericFormat
@@ -173,7 +173,7 @@ const Expenses = () => {
           />
         </span>
       </h3>
-      <section className="w-full h-full flex flex-col lg:flex-row px-6 md:px-8 lg:px-12 pt-6 space-y-8 lg:space-y-0 lg:space-x-8">
+      <section className="flex flex-col w-full h-full px-6 pt-6 space-y-8 lg:flex-row md:px-8 lg:px-12 lg:space-y-0 lg:space-x-8">
         <TransactionForm
           button="Add Expense"
           categories={expenseCategories}

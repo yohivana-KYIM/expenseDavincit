@@ -33,12 +33,12 @@ const LogoutModal = () => {
 
       dispatch(updateLoader(60));
       await dispatch(closeModal());
-      toast.success(res.message || "Logged out successfully!");
+      toast.success(res.message || "Déconnexion réussie !");
 
       navigate("/");
     } catch (error) {
       console.log(error);
-      toast.error(error?.data?.error || "Unexpected Internal Server Error!");
+      toast.error(error?.data?.error || "Erreur interne inattendue !");
     } finally {
       dispatch(updateLoader(100));
     }
@@ -55,14 +55,12 @@ const LogoutModal = () => {
         <>
           <ModalHeader>
             <h4 className="text-2xl text-error tracking-relaxed">
-              Logout Confirmation ?
+              Confirmation de Déconnexion ?
             </h4>
           </ModalHeader>
           <ModalBody>
             <p>
-              Are you sure you want to log out? Logging out will end your
-              current session and you will need to sign in again to access your
-              account.
+              Êtes-vous sûr de vouloir vous déconnecter ? La déconnexion mettra fin à votre session actuelle et vous devrez vous reconnecter pour accéder à votre compte.
             </p>
           </ModalBody>
           <ModalFooter>
@@ -72,7 +70,7 @@ const LogoutModal = () => {
               onPress={() => dispatch(closeModal())}
               className="text-base"
             >
-              Cancel
+              Annuler
             </Button>
             <Button
               color="primary"
@@ -81,7 +79,7 @@ const LogoutModal = () => {
               isLoading={isLoading}
               className="text-base"
             >
-              Logout
+              Se Déconnecter
             </Button>
           </ModalFooter>
         </>

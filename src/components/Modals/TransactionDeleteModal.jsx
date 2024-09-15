@@ -41,12 +41,12 @@ const TransactionDeleteModal = () => {
       toast.success(
         res.message ||
           (type === "income"
-            ? "Income deleted successfully!"
-            : "Expense deleted successfully!")
+            ? "Revenu supprimé avec succès !"
+            : "Dépense supprimée avec succès !")
       );
     } catch (error) {
       console.log(error);
-      toast.error(error?.data?.error || "Unexpected Internal Server Error!");
+      toast.error(error?.data?.error || "Erreur interne inattendue !");
     } finally {
       await dispatch(setRefetch(false));
       dispatch(updateLoader(100));
@@ -64,14 +64,14 @@ const TransactionDeleteModal = () => {
         <>
           <ModalHeader>
             <h4 className="text-xl text-error tracking-relaxed">
-              Are you sure you want to delete {title}?
+              Êtes-vous sûr de vouloir supprimer {title} ?
             </h4>
           </ModalHeader>
           <ModalBody>
             <p className="text-sm">
-              Confirm deletion: This action permanently removes the selected{" "}
-              {type} entry. Once deleted, it cannot be recovered. Cancel to
-              retain the {type} entry.
+              Confirmez la suppression : Cette action supprimera définitivement
+              l'entrée de {type} sélectionnée. Une fois supprimée, elle ne peut
+              pas être récupérée. Annulez pour conserver l'entrée de {type}.
             </p>
           </ModalBody>
           <ModalFooter>
@@ -81,7 +81,7 @@ const TransactionDeleteModal = () => {
               onPress={() => dispatch(closeModal())}
               className="text-base"
             >
-              Cancel
+              Annuler
             </Button>
             <Button
               color="primary"
@@ -90,7 +90,7 @@ const TransactionDeleteModal = () => {
               className="text-base"
               endContent={<Delete />}
             >
-              Delete
+              Supprimer
             </Button>
           </ModalFooter>
         </>

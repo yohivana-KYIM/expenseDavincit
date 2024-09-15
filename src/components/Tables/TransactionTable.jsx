@@ -28,12 +28,12 @@
 // }) => {
 //   const dispatch = useDispatch();
 //   return (
-//     <div className="w-full h-full flex justify-center">
+//     <div className="flex justify-center w-full h-full">
 //       <Table
 //         aria-label="Transactions table"
 //         bottomContent={
 //           totalPages > 1 ? (
-//             <div className="flex w-full justify-center">
+//             <div className="flex justify-center w-full">
 //               <Pagination
 //                 isCompact
 //                 showControls
@@ -74,7 +74,7 @@
 //         >
 //           {data?.map(({ title, amount, category, description, date, _id }) => (
 //             <TableRow key={_id}>
-//               <TableCell className="text-primary font-calSans tracking-wider capitalize">
+//               <TableCell className="tracking-wider capitalize text-primary font-calSans">
 //                 {title}
 //               </TableCell>
 //               <TableCell> FCFA{amount}</TableCell>
@@ -121,7 +121,7 @@
 //               <TableCell className="relative flex items-center gap-2">
 //                 <Tooltip content="View More">
 //                   <span
-//                     className="text-lg text-default-400 cursor-pointer active:opacity-50"
+//                     className="text-lg cursor-pointer text-default-400 active:opacity-50"
 //                     onClick={() =>
 //                       dispatch(
 //                         viewAndUpdateModal({
@@ -144,7 +144,7 @@
 //                 </Tooltip>
 //                 <Tooltip content="Edit">
 //                   <span
-//                     className="text-lg text-default-400 cursor-pointer active:opacity-50"
+//                     className="text-lg cursor-pointer text-default-400 active:opacity-50"
 //                     onClick={() =>
 //                       dispatch(
 //                         viewAndUpdateModal({
@@ -167,7 +167,7 @@
 //                 </Tooltip>
 //                 <Tooltip color="danger" content="Delete">
 //                   <span
-//                     className="text-lg text-danger cursor-pointer active:opacity-50"
+//                     className="text-lg cursor-pointer text-danger active:opacity-50"
 //                     onClick={() =>
 //                       dispatch(deleteModal({ title, _id, type: name }))
 //                     }
@@ -211,13 +211,13 @@ import { EyeOutline as Eye, Edit, Delete, Download } from "../../utils/Icons"; /
 import * as XLSX from 'xlsx'; // Importez la bibliothèque XLSX
 
 const TransactionTable = ({
-  data,
-  name,
-  isLoading,
-  setCurrentPage,
-  totalPages,
-  currentPage,
-  chipColorMap,
+  data = [], // Valeur par défaut pour data
+  name = "",
+  isLoading = false,
+  setCurrentPage = () => {},
+  totalPages = 1,
+  currentPage = 1,
+  chipColorMap = {}, // Valeur par défaut pour chipColorMap
 }) => {
   const dispatch = useDispatch();
 
@@ -238,13 +238,13 @@ const TransactionTable = ({
   };
 
   return (
-    <div className="w-full h-full flex flex-col items-center">
-      <div className="w-full flex justify-end mb-4 space-x-2">
+    <div className="flex flex-col items-center w-full h-full">
+      <div className="flex justify-end w-full mb-4 space-x-2">
         {/* Bouton d'export CSV */}
         <Tooltip content="Exporter en CSV">
           <button
             onClick={exportToCSV}
-            className="text-lg text-default-400 cursor-pointer active:opacity-50"
+            className="text-lg cursor-pointer text-default-400 active:opacity-50"
           >
             <Download /> Export CSV
           </button>
@@ -254,7 +254,7 @@ const TransactionTable = ({
         <Tooltip content="Exporter en Excel">
           <button
             onClick={exportToExcel}
-            className="text-lg text-default-400 cursor-pointer active:opacity-50"
+            className="text-lg cursor-pointer text-default-400 active:opacity-50"
           >
             <Download /> Export Excel
           </button>
@@ -265,7 +265,7 @@ const TransactionTable = ({
         aria-label="Transactions table"
         bottomContent={
           totalPages > 1 ? (
-            <div className="flex w-full justify-center">
+            <div className="flex justify-center w-full">
               <Pagination
                 isCompact
                 showControls
@@ -281,11 +281,11 @@ const TransactionTable = ({
         classNames={{
           base: "pb-12",
           wrapper: "h-full px-8 box-shadow-second",
-          table: !data ? "h-full" : "",
+          table: !data.length ? "h-full" : "",
         }}
       >
         <TableHeader>
-          <TableColumn key={name} className="capitalize">
+          <TableColumn key="title" className="capitalize">
             {name}
           </TableColumn>
           <TableColumn key="amount">Amount</TableColumn>
@@ -295,25 +295,25 @@ const TransactionTable = ({
           <TableColumn key="actions">Actions</TableColumn>
         </TableHeader>
         <TableBody
-          items={data || []}
+          items={data}
           loadingContent={<Spinner color="primary" size="lg" />}
           loadingState={isLoading ? "loading" : "idle"}
           emptyContent={
-            !data && !isLoading
+            !data.length && !isLoading
               ? `No ${name}s to display. Please add some ${name}s!`
               : ""
           }
         >
-          {data?.map(({ title, amount, category, description, date, _id }) => (
-            <TableRow key={_id}>
-              <TableCell className="text-primary font-calSans tracking-wider capitalize">
+          {data.map(({ title, amount, category, description, date, _id }) => (
+            <TableRow key={`${_id}-${title}`}>
+              <TableCell className="tracking-wider capitalize text-primary font-calSans">
                 {title}
               </TableCell>
-              <TableCell> FCFA{amount}</TableCell>
+              <TableCell>FCFA{amount}</TableCell>
               <TableCell>
                 <Chip
                   className="capitalize"
-                  color={chipColorMap[category]}
+                  color={chipColorMap[category] || "default"} // Utilisez une couleur par défaut si la catégorie n'est pas trouvée
                   size="sm"
                   variant="flat"
                 >
@@ -323,7 +323,7 @@ const TransactionTable = ({
               <TableCell
                 className={`transition-all ${
                   description.length > 20
-                    ? " hover:text-gray-400 hover:cursor-pointer"
+                    ? "hover:text-gray-400 hover:cursor-pointer"
                     : ""
                 }`}
                 onClick={() => {
@@ -353,7 +353,7 @@ const TransactionTable = ({
               <TableCell className="relative flex items-center gap-2">
                 <Tooltip content="View More">
                   <span
-                    className="text-lg text-default-400 cursor-pointer active:opacity-50"
+                    className="text-lg cursor-pointer text-default-400 active:opacity-50"
                     onClick={() =>
                       dispatch(
                         viewAndUpdateModal({
@@ -376,7 +376,7 @@ const TransactionTable = ({
                 </Tooltip>
                 <Tooltip content="Edit">
                   <span
-                    className="text-lg text-default-400 cursor-pointer active:opacity-50"
+                    className="text-lg cursor-pointer text-default-400 active:opacity-50"
                     onClick={() =>
                       dispatch(
                         viewAndUpdateModal({
@@ -399,7 +399,7 @@ const TransactionTable = ({
                 </Tooltip>
                 <Tooltip color="danger" content="Delete">
                   <span
-                    className="text-lg text-danger cursor-pointer active:opacity-50"
+                    className="text-lg cursor-pointer text-danger active:opacity-50"
                     onClick={() =>
                       dispatch(deleteModal({ title, _id, type: name }))
                     }

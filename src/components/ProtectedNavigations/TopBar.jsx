@@ -26,17 +26,17 @@ const TopBar = () => {
       <div className="block xl:hidden">
         <Menu />
       </div>
-      <div className="hidden md:flex items-center space-x-4">
+      <div className="items-center hidden space-x-4 md:flex">
         <img src={arrow} alt="" className="w-[35px]" />
         <Link
           to="https://www.linkedin.com/in/kenmegne-yoh-ivana-marina-a656a92a0"
           target="_blank"
-          className="text-xl text-secondary transition-all hover:text-primary relative animateBottom"
+          className="relative text-xl transition-all text-secondary hover:text-primary animateBottom"
         >
-          Contact Me
+          Contact 
         </Link>
       </div>
-      <div className="flex justify-center items-center space-x-4">
+      <div className="flex items-center justify-center space-x-4">
         {/* <Settings
           className={`hidden sm:block p-1 border-1 border-secondary rounded-lg size-[1.8rem] transition-all cursor-pointer hover:bg-slate-300 ${
             isRouteActive("/dashboard/settings") ? "activeLink" : ""
