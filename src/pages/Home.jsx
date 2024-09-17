@@ -89,10 +89,6 @@
 
 
 
-
-
-
-
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Button } from "@nextui-org/react";
@@ -102,6 +98,7 @@ import NavBar from "../components/NavBar";
 import Loading from "../components/Loading";
 import dashboard from "../assets/dashboard.webp";
 import { StartNow, ThreeDots } from "../utils/Icons";
+// import ExpenseTrackerAnimation from '../components/ExpenseTrackerAnimation';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -140,12 +137,14 @@ const Home = () => {
               repeat={Infinity}
             />
           </h2>
+         
           <p className="text-sm sm:text-base lg:text-lg my-8 text-balance text-center w-[90%] xl:w-[60%] mx-auto">
             Bienvenue chez{" "}
             <span className="font-bold">DA VINCI IT SOLUTIONS</span>, votre
             solution ultime pour gérer efficacement vos finances personnelles.
             Suivez vos dépenses, surveillez vos revenus et atteignez vos objectifs financiers.
           </p>
+          {/* <ExpenseTrackerAnimation />  */}
           <Button
             color="primary"
             className="text-sm sm:text-base lg:text-lg lg:w-[14rem] px-6 py-4 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg transition-transform transform hover:scale-105"

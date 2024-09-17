@@ -15,12 +15,14 @@ import {
   Incomes,
   Expenses,
   Settings,
+  Suggestion,
 } from "./pages";
 import { PublicRoutes, ProtectedRoutes } from "./components/Guards";
 
 const App = () => {
   return (
     <>
+    
       <TopLoadingBar />
       {/* <NavBar /> Ajoutez NavBar ici pour afficher le bouton de bascule du thème */}
       <ToastContainer
@@ -31,6 +33,8 @@ const App = () => {
         transition={Slide}
         toastClassName="font-outfit max-w-xs rounded-lg ml-4 sm:ml-0 mb-2"
       />
+
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/" element={<PublicRoutes />}>
@@ -43,6 +47,7 @@ const App = () => {
             <Route path="/dashboard/incomes" element={<Incomes />} />
             <Route path="/dashboard/expenses" element={<Expenses />} />
             <Route path="/dashboard/settings" element={<Settings />} />
+              <Route path="/dashboard/Suggestion" element={<Suggestion />} />
           </Route>
         </Route>
         <Route path="*" element={<NotFound />} />

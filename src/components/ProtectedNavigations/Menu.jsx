@@ -70,7 +70,19 @@ const Menu = () => {
         >
          Depense
         </DropdownItem>
-
+        
+        
+        <DropdownItem
+          key="Suggestion"
+          color="success"
+          startContent={<Income />}
+          description="View and Edit your Suggestion."
+          onPress={() => navigate("/dashboard/Suggestion")}
+        >
+          Suggestion
+        </DropdownItem>
+        
+       
         <DropdownItem
           key="settingss"
           color="secondary"

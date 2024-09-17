@@ -9,3 +9,5 @@ export { default as MainDashboard } from "./ProtectedPages/MainDashboard";
 export { default as Incomes } from "./ProtectedPages/Incomes";
 export { default as Expenses } from "./ProtectedPages/Expenses";
 export { default as Settings } from "./ProtectedPages/Settings";
+// Exportation des composants
+export { default as Suggestion } from './ProtectedPages/suggestion';

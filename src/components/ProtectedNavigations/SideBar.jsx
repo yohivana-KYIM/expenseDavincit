@@ -70,6 +70,12 @@ const SideBar = () => {
             <Expense className="size-[1.5rem]" />
            Depense
           </li>
+          <li
+          className={`link ${isRouteActive("/dashboard/Suggestion") ? "activeLink" : ""}`}
+          onClick={() => navigate("/dashboard/Suggestion")}
+        >
+          <Expense className="size-[1.5rem]" />
+          Suggestion  </li>
         </div>
         <li
           className={`link mt-auto ${
